@@ -28,11 +28,13 @@ export const router = createBrowserRouter([
         {
             path:"/register",
             element:<Register></Register>
+        },
+        {
+            path:"/courses",
+            element:<Courses></Courses>,
+            loader:async ()=>{return fetch("http://localhost:5000/catagory")}
         }
         ]
     },
-    {
-        path:"/courses",
-        element:<Courses></Courses>
-    }
+    
 ])

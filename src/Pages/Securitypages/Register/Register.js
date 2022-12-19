@@ -1,14 +1,72 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Form, Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc';
-import { SiFacebook } from 'react-icons/si';
+import { BsGithub } from 'react-icons/bs';
 import image from '../../../assets/Login/login-img.jpg'
 import './Register.css'
+import { AuthContext } from '../../../Context/MassContext';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+
 
 const Register = () => {
 
-    const addedUser=()=>{
+    const provider =new GoogleAuthProvider();
 
+    const gitProvider =new GithubAuthProvider();
+
+    const { addedUserWithEmail, updateCase, user, signInWithGoogle, loading }=useContext(AuthContext);
+
+    console.log(user)
+
+    const addedUser= event=>{
+        event.preventDefault()
+        const from =event.target;
+        const email =from.email.value;
+        const password =from.password.value;
+        const photo =from.photo.value;
+        const name =from.name.value;
+
+        from.reset('')
+
+        profileUse(name,photo)
+
+        addedUserWithEmail(email,password)
+            .then(reasult=>{
+                const user =reasult.user;
+            })
+            .catch((error)=>{console.error('firebaseError',error)})
+            
+    }
+
+
+    const profileUse=(name,photo)=>{
+        updateCase(name,photo)
+        .then(()=>{})
+        .catch((error)=>{
+            console.error('firebase error',error)
+        })
+    }
+
+
+    const handleGoogleSignIn=()=>{
+        signInWithGoogle(provider)
+        .then((result)=>{
+            const user =result.user;
+        })
+        .catch((error)=>{
+            console.error('firebaseError',error)
+        })
+    }
+
+
+    const handleSignInWithGithub=()=>{
+        signInWithGoogle(gitProvider)
+        .then((result)=>{
+            const user =result.user;
+        })
+        .catch((error)=>{
+            console.error('firebaseError',error)
+        })
     }
 
     return (
@@ -21,7 +79,7 @@ const Register = () => {
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
 
                         <div className="text-center mt-3">
-                            <h1 className="text-4xl font-bold">SignIn</h1>
+                            <h1 className="text-3xl font-bold">Sign in</h1>
                         </div>
 
                         <Form onSubmit={addedUser} className="card-body">
@@ -30,28 +88,32 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Fullname</span>
                                 </label>
-                                <input type="text" placeholder="please enter your Fullname" className="input input-bordered" />
+                                <input type="text" placeholder="please enter your Fullname"
+                                name='name' className="input input-bordered"/>
                             </div>
                             {/* PhotoUrl section start */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Photo</span>
                                 </label>
-                                <input type="text " placeholder="photoLink" className="input input-bordered" />
+                                <input type="text" placeholder="photoLink" 
+                                name='photo' className="input input-bordered" />
                             </div>
                             {/* email section start */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" className="input input-bordered" />
+                                <input type="email" placeholder="email" 
+                                name='email' className="input input-bordered" />
                             </div>
                             {/* password section start */}
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" placeholder="password" className="input input-bordered" />
+                                <input type="password" placeholder="password" 
+                                name='password' className="input input-bordered" />
                                 <label className="label">
                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                 </label>
@@ -63,8 +125,9 @@ const Register = () => {
                         </Form>
 
                         <div className='flex justify-center'>
-                            <button><FcGoogle/></button>
-                            <button className='m-3 text-sky-600'><SiFacebook/></button>
+                            <button onClick={handleGoogleSignIn}><FcGoogle/></button>
+                            <button onClick={handleSignInWithGithub} className='ml-3'><BsGithub/></button>
+                            
                         </div>
                             <p className='text-center m-5'>Alredy have an account <Link className='text-red-400' to={'/login'}>Login</Link></p>
 

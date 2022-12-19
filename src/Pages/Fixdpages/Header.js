@@ -1,13 +1,27 @@
-import React from 'react';
-import { Button, Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CiLight } from 'react-icons/ci';
+import { IoMdLogIn } from 'react-icons/io'
 import { MdDarkMode } from 'react-icons/md'
-import { CgProfile } from 'react-icons/cg'
-import { Tooltip } from 'react-tooltip';
-
+import { RiLogoutCircleFill } from 'react-icons/ri'
 import img from '../../assets/navimg/cse image_prev_ui.png'
+import { AuthContext } from '../../Context/MassContext';
+import { Tooltip } from '@mui/material';
+import { deepPurple } from '@mui/material/colors';
 
 const Header = () => {
+
+  const { user, logOut } = useContext(AuthContext)
+  console.log(user)
+
+
+  const handleLogeOut = () => {
+    logOut()
+      .then(() => { })
+      .catch((error) => {
+        console.error('firebase error', error)
+      })
+  }
   return (
     <div>
       <div className="navbar bg-light-500">
@@ -54,14 +68,30 @@ const Header = () => {
         </div>
         <div className="navbar-end">
 
-          <div>
-            <Tooltip title="Add" arrow>
-              <button></button>
-            </Tooltip>
+          <div className='m-3'>
+            {
+              user?.uid ?
+                <div className='flex'>
+                  <Tooltip title={user?.displayName ? user.displayName : 'Name not founded'
+                  } arrow>
+                    <img className='w-4 rounded-md mr-3' src={user.photoURL} alt=""></img>
+
+                  </Tooltip>
+
+                  <button title='log out' onClick={handleLogeOut}><RiLogoutCircleFill /></button>
+                </div> :
+                <Link to={'/login'} title="please login"><IoMdLogIn /></Link>
+
+            }
           </div>
 
-          <button><CiLight /></button>
-          <button><MdDarkMode /></button>
+        
+            <div type='checkbox' className='toggle toggle-info' checked>
+              <button><CiLight /></button>
+              <button className='ml-3'><MdDarkMode /></button>
+            </div>
+          
+
         </div>
       </div>
     </div>
