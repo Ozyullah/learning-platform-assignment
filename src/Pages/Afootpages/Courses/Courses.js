@@ -2,14 +2,13 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
-    const albams =useLoaderData();
-    console.log(albams)
-
+    const ask =useLoaderData()
+    console.log(ask)
     return (
         <div>
-            {
-                albams.map((album)=><div className='text-blue-600' key={album.id}><Link href="https://www.facebook.com/">{album.name}</Link></div>)
-            }
+           {
+            ask.map(ak=><div key={ak._id}><img className='w-20 h-auto' src={ak.img} alt="" /></div>
+            )}
         </div>
     );
 };

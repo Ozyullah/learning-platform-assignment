@@ -29,8 +29,10 @@ const MassContext = ({ children }) => {
 
     const signInWithGoogle =(provider)=>{
         return signInWithPopup(auth, provider)
-        setLoading(true)
-        Navigate('/')
+    }
+
+    const signInWithGithub =(provider)=>{
+        return signInWithPopup(auth, provider)
     }
 
 
@@ -65,7 +67,8 @@ const MassContext = ({ children }) => {
         signInWithGoogle,
         loginWithEmail,
         logOut,
-        loading
+        loading,
+        signInWithGithub
     }
     return (
         <AuthContext.Provider value={par}>

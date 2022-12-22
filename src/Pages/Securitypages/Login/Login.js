@@ -14,7 +14,7 @@ const Login = () => {
 
     const gitProvider =new GithubAuthProvider();
 
-    const {user,signInWithGoogle,loginWithEmail}=useContext(AuthContext);
+    const {user,signInWithGoogle,loginWithEmail,signInWithGithub}=useContext(AuthContext);
 
     console.log(user)
 
@@ -47,12 +47,14 @@ const Login = () => {
 
 
     const handleLoginWithGithub=()=>{
-        signInWithGoogle(gitProvider)
+        signInWithGithub(gitProvider)
         .then((result)=>{
             const user =result.user;
         })
         .catch((error)=>{
-            console.err('firebase error', error)
+            console.error('firebase error', error)
+
+            const credential =GithubAuthProvider.credentialFromError(error)
 
         })
     }
