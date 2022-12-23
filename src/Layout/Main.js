@@ -1,7 +1,7 @@
-import { Container } from 'postcss';
+
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import CoursesItems from '../Pages/Afootpages/CoursesDetails/CoursesItems/CoursesItems';
+import MenuBar from '../Pages/Afootpages/Courses/CatagoryItems/MenuBar';
 import Header from '../Pages/Fixdpages/Header';
 
 const Main = () => {
@@ -9,10 +9,10 @@ const Main = () => {
         <div>
             <Header></Header>
             <div className='flex'>
-                <div className='grid grid-cols-2 ml-6'>
-                    <CoursesItems></CoursesItems>
-                </div>
                 <div className='grid grid-cols-1'>
+                    <MenuBar></MenuBar>
+                </div>
+                <div className='grid m-5'>
                     <Outlet></Outlet>
                 </div>
             </div>

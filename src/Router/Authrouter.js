@@ -4,6 +4,7 @@ import Blog from "../Pages/Afootpages/Blog/Blog";
 import Courses from "../Pages/Afootpages/Courses/Courses";
 import CoursesItems from "../Pages/Afootpages/CoursesDetails/CoursesItems/CoursesItems";
 import Faq from "../Pages/Afootpages/Faq/Faq";
+import Home from "../Pages/Afootpages/HomePage/Home";
 import Login from "../Pages/Securitypages/Login/Login";
 import Register from "../Pages/Securitypages/Register/Register";
 
@@ -14,6 +15,11 @@ export const router = createBrowserRouter([
         path:"/",
         element:<Main></Main>,
         children:[
+        {
+            path:"/",
+            element:<Home></Home>,
+            loader:()=>fetch("http://localhost:5000/courses")
+        },
         {
             path:"/faq",
             element:<Faq></Faq>,
@@ -33,12 +39,12 @@ export const router = createBrowserRouter([
         {
             path:"/courses",
             element:<Courses></Courses>,
-            loader:async (params)=>{return fetch(`http://localhost:5000/courses`)}
+            loader:()=>fetch("http://localhost:5000/catagory")
         },
         {
-            path:"/catagory",
+            path:"/catagory/:id",
             element:<CoursesItems></CoursesItems>,
-            loader:()=>{return fetch(``)}
+            loader:({params})=>fetch(`http://localhost:5000/catagory/${params.id}`)
         }
         ]
     },

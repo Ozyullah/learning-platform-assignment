@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import MenuBar from './CatagoryItems/MenuBar';
 
 const Courses = () => {
     const ask =useLoaderData()
@@ -7,7 +8,7 @@ const Courses = () => {
     return (
         <div>
            {
-            ask.map(ak=><div key={ak._id}><img className='w-20 h-auto' src={ak.img} alt="" /></div>
+            ask.map(ak=><MenuBar key={ak.id} anik={ak}></MenuBar>
             )}
         </div>
     );
