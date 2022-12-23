@@ -1,12 +1,16 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import CoursesPart from './CoursesPart';
 
 const CoursesItems = () => {
-    const catagory =useLoaderData()
-    console.log(catagory)
+    const studies =useLoaderData()
+    console.log(studies)
     return (
         <div>
-            ha akjfhgi s fruh;fg  sifdgh gvahgr sdfghrojgf
+            {
+                studies.map(stude=><CoursesPart key={stude._id}
+                stude={stude}></CoursesPart>)
+            }
         </div>
     );
 };

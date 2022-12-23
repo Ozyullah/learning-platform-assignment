@@ -14,7 +14,7 @@ const AllCourses = ({ letter }) => {
                     <h2 className="card-title">{name}</h2>
                     <p></p>
                     <div className="card-actions">
-                        <button className="btn btn-primary" ><Link to={`/catagory/${catagory_id}`}>Details</Link></button>
+                        
                     </div>
                 </div>
             </div>
