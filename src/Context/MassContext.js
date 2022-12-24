@@ -24,7 +24,7 @@ const MassContext = ({ children }) => {
         return updateProfile(auth.currentUser, {
             displayName:name, photoURL:photo
         })
-        setLoading(true)
+        
     }
 
     const signInWithGoogle =(provider)=>{
@@ -68,7 +68,8 @@ const MassContext = ({ children }) => {
         loginWithEmail,
         logOut,
         loading,
-        signInWithGithub
+        signInWithGithub,
+        setUser
     }
     return (
         <AuthContext.Provider value={par}>

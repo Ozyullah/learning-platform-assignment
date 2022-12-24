@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import DescriptionHead from './DescriptionHead';
 import TaleDescription from './TaleDescription';
 import { ref } from './DescriptionHead';
@@ -11,12 +11,15 @@ const CoursesDescription = () => {
     const albums =useLoaderData()
     console.log(albums)
     return (
-        <div className='reader'>
+        <div>
            <DescriptionHead></DescriptionHead>
-           <div className='m-10' ref={ref}>
+           <div className='m-10 reader' ref={ref}>
                <img src={albums.img} alt="" />
-               <h4>{albums.name}</h4>
-               <p>{albums.descriptions}</p>
+               <h4 className='text-4xl'>{albums.name}</h4>
+               <p className='text-xl'>{albums.descriptions}</p>
+           </div>
+           <div className='flex justify-end'>
+            <Link to={''} className=" btn-outline rounded-md m-5 p-2">Cheackout page</Link>
            </div>
         </div>
     );
