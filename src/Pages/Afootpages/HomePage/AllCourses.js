@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AllCourses = ({ letter }) => {
 
-    const { name, img , catagory_id } = letter;
+    const { name, img } = letter;
     return (
         <div>
             <div className="card w-52 bg-base-100 shadow-xl">

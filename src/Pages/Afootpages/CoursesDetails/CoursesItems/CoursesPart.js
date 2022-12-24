@@ -1,11 +1,22 @@
 import React from 'react';
+import { MdDescription } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const CoursesPart = ({ stude }) => {
 
-    const {name, img}=stude;
+    const { name, img, } = stude;
     return (
         <div>
-            <img src={img} alt="" />
+            <div className="card card-compact w-44 bg-base-100 shadow-xl">
+                <figure><img className='w-44 h-20' src={img} alt="Shoes" /></figure>
+                <div className="card-body">
+                    <h2 className="card-title">{name}</h2>
+                   
+                    <div className="card-actions justify-end">
+                        <Link to={`/courses/${stude._id}`} className="btn btn-outline btn-success">Details <MdDescription/></Link>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };

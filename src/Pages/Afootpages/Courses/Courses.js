@@ -1,15 +1,22 @@
-import React from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
-import CoursesItems from '../CoursesDetails/CoursesItems/CoursesItems';
-import MenuBar from './CatagoryItems/MenuBar';
+import React, { useEffect, useState } from 'react';
+import { GiQuillInk } from 'react-icons/gi';
+import { Link } from 'react-router-dom';
+
 
 const Courses = () => {
-    const ask =useLoaderData()
-    console.log(ask)
+    const [catagories,setCatagories]=useState([]);
+
+    useEffect(()=>{
+        fetch('http://localhost:5000/catagory')
+        .then(res => res.json())
+        .then(data => setCatagories(data))
+    },[])
     return (
-        <div>
-         {/* <CoursesItems></CoursesItems> */}
-        </div>
+    <div className='m-5'>
+         {
+                catagories.map(catagore=><p className='p-1' key={catagore.id}><Link className=' text-blue-500' to={`/catagory/${catagore.id}`}><GiQuillInk/>{catagore.name}</Link></p>)
+           }
+    </div> 
     );
 };
 

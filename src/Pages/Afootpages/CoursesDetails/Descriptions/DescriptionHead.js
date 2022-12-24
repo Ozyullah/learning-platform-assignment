@@ -1,29 +1,17 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import { TbBookDownload } from 'react-icons/tb';
+import { IoMdLogIn } from 'react-icons/io';
+import { MdDarkMode } from 'react-icons/md';
+import image from '../../../../assets/navimg/cse image_prev_ui.png';
+import Pdf from "react-to-pdf";
 import { Link } from 'react-router-dom';
-import { CiLight } from 'react-icons/ci';
-import { IoMdLogIn } from 'react-icons/io'
-import { MdDarkMode } from 'react-icons/md'
-import { RiLogoutCircleFill } from 'react-icons/ri'
-import img from '../../assets/navimg/cse image_prev_ui.png'
-import { AuthContext } from '../../Context/MassContext';
-import { Tooltip } from '@mui/material';
 
 
-const Header = () => {
+export const ref =React.createRef()
 
-  const { user, logOut } = useContext(AuthContext)
-  console.log(user)
-
-
-  const handleLogeOut = () => {
-    logOut()
-      .then(() => { })
-      .catch((error) => {
-        console.error('firebase error', error)
-      })
-  }
-  return (
-    <div>
+const DescriptionHead = () => {
+    return (
+        <div>
       <div className="navbar bg-light-500">
         <div className="navbar-start">
           <div className="dropdown">
@@ -46,7 +34,7 @@ const Header = () => {
             </ul>
           </div>
           <Link to={'/'} className='flex items-center text-xl font-bold'>
-            <img className='h-12' src={img} alt="" />
+            <img className='h-12' src={image} alt="" />
             CSE Tutorial
           </Link>
         </div>
@@ -69,7 +57,7 @@ const Header = () => {
         <div className="navbar-end">
 
           <div className='m-3'>
-            {
+            {/* {
               user?.uid ?
                 <div className='flex'>
                   <Tooltip title={user?.displayName ? user.displayName : 'Name not founded'
@@ -78,24 +66,29 @@ const Header = () => {
 
                   </Tooltip>
 
-                  <button title='log out' onClick={handleLogeOut}><RiLogoutCircleFill /></button>
-                </div> :
-                <Link to={'/login'} title="please login"><IoMdLogIn /></Link>
+                 
+                </div> : */}
+                <Link to={'/login'} title="please login"><IoMdLogIn/></Link>
 
-            }
+            {/* } */}
           </div>
 
         
-            <div type='checkbox' className='toggle toggle-info' checked>
-              <button><CiLight /></button>
-              <button className='ml-3'><MdDarkMode /></button>
+            {/* <div type='checkbox' className='toggle toggle-info' checked>
+              <button><CiLight/></button>
+              <button className='ml-3'><MdDarkMode/></button>
+            </div> */}
+            <div>
+                <Pdf targetRef={ref} filename="courses-description.pdf">
+                {({toPdf})=><button onClick={toPdf}><TbBookDownload/></button>}
+                </Pdf>
             </div>
           
 
         </div>
       </div>
     </div>
-  );
+    );
 };
 
-export default Header;
+export default DescriptionHead;

@@ -4,6 +4,7 @@ import Blog from "../Pages/Afootpages/Blog/Blog";
 import MenuBar from "../Pages/Afootpages/Courses/CatagoryItems/MenuBar";
 import Courses from "../Pages/Afootpages/Courses/Courses";
 import CoursesItems from "../Pages/Afootpages/CoursesDetails/CoursesItems/CoursesItems";
+import CoursesDescription from "../Pages/Afootpages/CoursesDetails/Descriptions/CoursesDescription";
 import Faq from "../Pages/Afootpages/Faq/Faq";
 import Home from "../Pages/Afootpages/HomePage/Home";
 import ErrorPage from "../Pages/ErrorPage";
@@ -20,7 +21,7 @@ export const router = createBrowserRouter([
         {
             path:"/",
             element:<Home></Home>,
-            loader:()=>fetch("http://localhost:5000/courses")
+            loader:()=>fetch("http://localhost:5000/tittles")
         },
         {
             path:"/faq",
@@ -48,6 +49,11 @@ export const router = createBrowserRouter([
             loader:({params})=>fetch(`http://localhost:5000/catagory/${params.id}`)
         }
         ]
+    },
+    {
+        path:"/courses/:id",
+        element:<CoursesDescription></CoursesDescription>,
+        loader:({ params })=>fetch(`http://localhost:5000/courses/${params.id}`)
     },
     {
         path:"/*",

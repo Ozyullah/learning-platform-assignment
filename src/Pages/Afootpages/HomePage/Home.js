@@ -13,10 +13,11 @@ const Home = () => {
             <div className='grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-1 gap-7'>
 
                 {
-                    allItems.map(item => <AllCourses key={item._id} letter={item}></AllCourses>)
+                    allItems.map(item => <AllCourses key={item.id} letter={item}></AllCourses>)
                 }
 
             </div>
+                <h4 className='text-xl font-bold m-10 text-blue-700'>For Details you visite Courses route</h4>
         </div>
     );
 };
