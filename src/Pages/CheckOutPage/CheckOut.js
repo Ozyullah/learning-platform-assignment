@@ -24,7 +24,7 @@ const CheckOut = () => {
                         <button className=' btn-outline p-1 rounded-lg text-blue-300'>Get it</button>
                     </div>
                     <div className="card-body items-end">
-                        <h2 className='flex items-center'><HiUserGroup />{cheack.user}</h2>
+                        <h2 className='flex items-center'><HiUserGroup />{cheack.users}</h2>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ const CoursesDescription = () => {
                <p className='text-xl'>{albums.descriptions}</p>
            </div>
            <div className='flex justify-end'>
-            <Link to={`/premium/${albums._id}`} className="btn btn-outline btn-primary rounded-md m-5 p-2">Cheackout page</Link>
+            <Link to={`/premium/${albums._id}`} className="btn btn-outline btn-primary rounded-md m-5 p-2">Get premium</Link>
            </div>
         </div>
     );

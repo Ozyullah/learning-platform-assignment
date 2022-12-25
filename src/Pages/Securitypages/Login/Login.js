@@ -15,7 +15,7 @@ const Login = () => {
 
     const gitProvider =new GithubAuthProvider();
 
-    const {user,signInWithGoogle,loginWithEmail,signInWithGithub}=useContext(AuthContext);
+    const {user,signInWithGoogle,loginWithEmail,signInWithGithub,Navigate}=useContext(AuthContext);
 
     console.log(user)
 
@@ -25,6 +25,7 @@ const Login = () => {
         const email=from.email.value;
         const password =from.password.value;
 
+        
         from.reset('')
 
         loginWithEmail(email,password)
@@ -34,8 +35,9 @@ const Login = () => {
         })
         .catch((error)=>{
             // console.error('firebase error', error)
-            toast.error("please enter right email",error)
+            toast.error("Please enter the correct email and password")
         })
+        
     }
 
     // for login with Google area

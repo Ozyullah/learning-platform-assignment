@@ -1,8 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { CiLight } from 'react-icons/ci';
-import { IoMdLogIn } from 'react-icons/io'
-import { MdDarkMode } from 'react-icons/md'
+import { IoMdLogIn } from 'react-icons/io';
 import { RiLogoutCircleFill } from 'react-icons/ri'
 import img from '../../assets/navimg/cse image_prev_ui.png'
 import { AuthContext } from '../../Context/MassContext';
@@ -85,12 +83,13 @@ const Header = () => {
             }
           </div>
 
-        
-            <div type='checkbox' className='toggle toggle-info' checked>
-              <button><CiLight /></button>
-              <button className='ml-3'><MdDarkMode /></button>
-            </div>
-          
+            
+              <label for='check' className=' w-12 h-5 bg-gray-300 outline rounded-full relative cursor-pointer'>
+                <input type="checkbox" id="check" className='sr-only peer' />
+                <span className='w-1/3 h-4/6 bg-blue-400 rounded-full absolute left-1 top-1 peer-checked:bg-blue-600 peer-checked:left-7'></span>
+              </label>
+            
+    
 
         </div>
       </div>
