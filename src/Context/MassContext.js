@@ -11,14 +11,16 @@ const auth = getAuth(app)
 const MassContext = ({ children }) => {
 
     const [user, setUser] = useState('');
-    const [loading,setLoading]= useState(false)
+    const [loading,setLoading]= useState(true)
 
-
+// create user wwith email password
     const addedUserWithEmail = (email, password) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
 
     }
+
+    // for added name and photo
 
     const updateCase = (name, photo) => {
         return updateProfile(auth.currentUser, {
@@ -27,22 +29,23 @@ const MassContext = ({ children }) => {
         
     }
 
+
     const signInWithGoogle =(provider)=>{
         return signInWithPopup(auth, provider)
     }
+
 
     const signInWithGithub =(provider)=>{
         setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
-
+    // login with email and password
+    
     const loginWithEmail =(email,password)=>{
         setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
-
-
 
 
     const logOut =()=>{
@@ -54,6 +57,7 @@ const MassContext = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, (actualUser) => {
             setUser(actualUser);
+            setLoading(false)
         })
         return()=>{
             return unSubscribe();

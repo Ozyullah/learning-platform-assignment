@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { BsGithub } from 'react-icons/bs';
 import img from '../../../assets/Login/login-img.jpg'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, Navigate } from 'react-router-dom';
 import './Login.css';
 import { AuthContext } from '../../../Context/MassContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -30,6 +30,7 @@ const Login = () => {
         loginWithEmail(email,password)
         .then((result)=>{
             const user =result.user;
+            
         })
         .catch((error)=>{
             // console.error('firebase error', error)
@@ -105,6 +106,7 @@ const Login = () => {
                                 <button className="btn btn-primary">Login</button>
                                 <Toaster/>
                             </div>
+                            
                         </Form>
 
                         <div className='flex justify-center'>

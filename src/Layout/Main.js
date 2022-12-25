@@ -11,10 +11,11 @@ const Main = () => {
             <Header></Header>
             <div className='flex'>
                 <div className='grid grid-cols-1'>
+            {/* defferent design */}
                     {/* <MenuBar></MenuBar> */}
-                    <Courses></Courses>
+                    {/* <Courses></Courses> */}
                 </div>
-                <div className='grid m-5'>
+                <div className='grid m-5 mx-auto'>
                     <Outlet></Outlet>
                 </div>
             </div>

@@ -13,7 +13,7 @@ const CoursesDescription = () => {
         <div>
            <DescriptionHead></DescriptionHead>
            <div className='m-10 reader' ref={ref}>
-               <img src={albums.img} alt="" />
+               <img className='flex justify-center-center' src={albums.img} alt="" />
                <h4 className='text-4xl'>{albums.name}</h4>
                <p className='text-xl'>{albums.descriptions}</p>
            </div>

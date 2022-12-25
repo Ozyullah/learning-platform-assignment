@@ -56,29 +56,7 @@ const DescriptionHead = () => {
         </div>
         <div className="navbar-end">
 
-          <div className='m-3'>
-            {/* {
-              user?.uid ?
-                <div className='flex'>
-                  <Tooltip title={user?.displayName ? user.displayName : 'Name not founded'
-                  } arrow>
-                    <img className='w-4 rounded-md mr-3' src={user.photoURL} alt=""></img>
-
-                  </Tooltip>
-
-                 
-                </div> : */}
-                <Link to={'/login'} title="please login"><IoMdLogIn/></Link>
-
-            {/* } */}
-          </div>
-
-        
-            {/* <div type='checkbox' className='toggle toggle-info' checked>
-              <button><CiLight/></button>
-              <button className='ml-3'><MdDarkMode/></button>
-            </div> */}
-            <div>
+            <div className='mr-10'>
                 <Pdf targetRef={ref} filename="courses-description.pdf">
                 {({toPdf})=><button onClick={toPdf}><TbBookDownload/></button>}
                 </Pdf>

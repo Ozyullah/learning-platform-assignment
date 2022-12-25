@@ -13,7 +13,7 @@ const CoursesPart = ({ stude }) => {
                     <h2 className="card-title">{name}</h2>
                    
                     <div className="card-actions justify-end">
-                        <Link to={`/courses/${stude._id}`} className="btn btn-outline btn-success">Details <MdDescription/></Link>
+                        <Link to={`/courses/${stude._id}`} className="flex items-center btn-outline btn-primary rounded-xl p-2 ">Details <MdDescription/></Link>
                     </div>
                 </div>
             </div>
