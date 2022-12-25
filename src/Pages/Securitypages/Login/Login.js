@@ -6,6 +6,7 @@ import { Form, Link } from 'react-router-dom';
 import './Login.css';
 import { AuthContext } from '../../../Context/MassContext';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import { toast, Toaster } from 'react-hot-toast';
 
 
 const Login = () => {
@@ -31,9 +32,12 @@ const Login = () => {
             const user =result.user;
         })
         .catch((error)=>{
-            console.error('firebase error', error)
+            // console.error('firebase error', error)
+            toast.error("please enter right email",error)
         })
     }
+
+    // for login with Google area
 
     const handleLoginWithGoogle=()=>{
         signInWithGoogle(provider)
@@ -45,6 +49,7 @@ const Login = () => {
         })
     }
 
+// for login with github
 
     const handleLoginWithGithub=()=>{
         signInWithGithub(gitProvider)
@@ -73,6 +78,8 @@ const Login = () => {
                     </div>
                         <Form onSubmit={handleLoginWithEmail} className="card-body">
                             <div className="form-control">
+
+                {/* Email area started */}
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
@@ -81,6 +88,9 @@ const Login = () => {
                                 className="input input-bordered" />
                             </div>
                             <div className="form-control">
+
+                                {/* Password area started */}
+                                
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
@@ -93,6 +103,7 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>
+                                <Toaster/>
                             </div>
                         </Form>
 

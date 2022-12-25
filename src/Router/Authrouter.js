@@ -1,15 +1,16 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Blog from "../Pages/Afootpages/Blog/Blog";
-import MenuBar from "../Pages/Afootpages/Courses/CatagoryItems/MenuBar";
 import Courses from "../Pages/Afootpages/Courses/Courses";
 import CoursesItems from "../Pages/Afootpages/CoursesDetails/CoursesItems/CoursesItems";
 import CoursesDescription from "../Pages/Afootpages/CoursesDetails/Descriptions/CoursesDescription";
 import Faq from "../Pages/Afootpages/Faq/Faq";
 import Home from "../Pages/Afootpages/HomePage/Home";
+import CheckOut from "../Pages/CheckOutPage/CheckOut";
 import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Securitypages/Login/Login";
 import Register from "../Pages/Securitypages/Register/Register";
+import Securerouter from "./Privateroute/Securerouter";
 
 
 
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
             path:"/catagory/:id",
             element:<CoursesItems></CoursesItems>,
             loader:({params})=>fetch(`http://localhost:5000/catagory/${params.id}`)
+        },
+        {
+            path:"/premium",
+            element:<Securerouter><CheckOut></CheckOut></Securerouter>
         }
         ]
     },

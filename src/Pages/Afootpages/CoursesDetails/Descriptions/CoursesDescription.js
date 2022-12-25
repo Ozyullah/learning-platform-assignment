@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import DescriptionHead from './DescriptionHead';
-import TaleDescription from './TaleDescription';
 import { ref } from './DescriptionHead';
 import './CoursesDescription.css'
 
@@ -19,7 +18,7 @@ const CoursesDescription = () => {
                <p className='text-xl'>{albums.descriptions}</p>
            </div>
            <div className='flex justify-end'>
-            <Link to={''} className=" btn-outline rounded-md m-5 p-2">Cheackout page</Link>
+            <Link to={'/premium'} className="btn btn-outline btn-primary rounded-md m-5 p-2">Cheackout page</Link>
            </div>
         </div>
     );

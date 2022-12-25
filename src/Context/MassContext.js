@@ -1,7 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithPopup, updateProfile, signInWithEmailAndPassword, signOut} from "firebase/auth"
 import app from '../firebase.Config';
-import { Navigate } from 'react-router-dom';
+
 
 
 export const AuthContext = createContext();
@@ -15,8 +15,8 @@ const MassContext = ({ children }) => {
 
 
     const addedUserWithEmail = (email, password) => {
-        return createUserWithEmailAndPassword(auth, email, password)
         setLoading(true)
+        return createUserWithEmailAndPassword(auth, email, password)
 
     }
 
@@ -32,21 +32,22 @@ const MassContext = ({ children }) => {
     }
 
     const signInWithGithub =(provider)=>{
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
 
     const loginWithEmail =(email,password)=>{
-        return signInWithEmailAndPassword(auth, email, password)
         setLoading(true)
+        return signInWithEmailAndPassword(auth, email, password)
     }
 
 
 
 
     const logOut =()=>{
-        return signOut(auth)
         setLoading(true)
+        return signOut(auth)
     }
 
 
