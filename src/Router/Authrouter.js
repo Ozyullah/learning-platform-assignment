@@ -50,8 +50,9 @@ export const router = createBrowserRouter([
             loader:({params})=>fetch(`http://localhost:5000/catagory/${params.id}`)
         },
         {
-            path:"/premium",
-            element:<Securerouter><CheckOut></CheckOut></Securerouter>
+            path:"/premium/:id",
+            element:<Securerouter><CheckOut></CheckOut></Securerouter>,
+            loader:({ params })=>fetch(`http://localhost:5000/premium/${params.id}`)
         }
         ]
     },

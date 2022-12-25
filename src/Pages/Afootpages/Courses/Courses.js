@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { GiQuillInk } from 'react-icons/gi';
-import { Link } from 'react-router-dom';
 import MenuBar from './CatagoryItems/MenuBar';
 
 
