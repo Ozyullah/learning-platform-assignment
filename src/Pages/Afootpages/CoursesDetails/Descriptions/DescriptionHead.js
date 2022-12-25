@@ -7,11 +7,14 @@ import Pdf from "react-to-pdf";
 import { Link } from 'react-router-dom';
 
 
-export const ref =React.createRef()
+export const ref = React.createRef()
 
-const DescriptionHead = () => {
-    return (
-        <div>
+const DescriptionHead = ({ collect }) => {
+
+  console.log(collect)
+  const { name } = collect;
+  return (
+    <div>
       <div className="navbar bg-light-500">
         <div className="navbar-start">
           <div className="dropdown">
@@ -41,32 +44,26 @@ const DescriptionHead = () => {
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li><Link to={'/courses'}>Courses</Link></li>
-            <li tabIndex={0}>
-              <Link to={'/faq'}>
-                FAQ
-                <svg className="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" /></svg>
-              </Link>
-              <ul className="p-2">
-                <li><a href="#">Submenu 1</a></li>
-                <li><a href="#">Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><Link to={'/blog'}>Blog</Link></li>
           </ul>
-        </div>
-        <div className="navbar-end">
 
-            <div className='mr-10'>
-                <Pdf targetRef={ref} filename="courses-description.pdf">
-                {({toPdf})=><button onClick={toPdf}><TbBookDownload/></button>}
-                </Pdf>
-            </div>
-          
+        </div>
+
+        <div className="navbar-end">
+          <div>
+            <h3 className='font-bold text-gray-500 md:mr-24 sm:mr-2 mr-44'>{name}</h3>
+          </div>
+
+          <div className='mr-10'>
+            <Pdf targetRef={ref} filename="courses-description.pdf">
+              {({ toPdf }) => <button onClick={toPdf}><TbBookDownload /></button>}
+            </Pdf>
+          </div>
+
 
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default DescriptionHead;

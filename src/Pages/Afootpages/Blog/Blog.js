@@ -3,7 +3,7 @@ import React from 'react';
 const Blog = () => {
     return (
         <div >
-            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5">
+            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5 m-3">
                 <div>
                     <h1 className='text-center text-xl font-semibold'>what is cors?</h1>
                 </div>
@@ -20,7 +20,7 @@ const Blog = () => {
 
 
 {/* Answere two */}
-            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5">
+            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5 m-3">
                 <div>
                     <h1 className='text-center text-xl font-semibold'> Why are you using firebase?</h1>
                 </div>
@@ -36,7 +36,7 @@ const Blog = () => {
 
 
 {/* Answere three */}
-            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5">
+            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5 m-3">
                 <div>
                     <h1 className='text-center text-xl font-semibold'> How does the private route work?</h1>
                 </div>
@@ -57,7 +57,7 @@ In this article, we can see. How to create public and private routes using react
 
 {/* Answere four */}
 
-            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5">
+            <div className="artboard artboard-horizontal phone-1 bg-blue-300 rounded-3xl p-5 m-3">
                 <div>
                     <h1 className='text-center text-xl font-semibold'>What is Node?</h1>
                 </div>

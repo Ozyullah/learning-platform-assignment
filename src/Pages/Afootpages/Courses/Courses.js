@@ -6,7 +6,7 @@ const Courses = () => {
     // const [catagories,setCatagories]=useState([]);
 
     // useEffect(()=>{
-    //     fetch('http://localhost:5000/catagory')
+    //     fetch('https://learning-platforn-assignment-server.vercel.app/catagory')
     //     .then(res => res.json())
     //     .then(data => setCatagories(data))
     // },[])

@@ -11,7 +11,7 @@ const CoursesDescription = () => {
     console.log(albums)
     return (
         <div>
-           <DescriptionHead></DescriptionHead>
+           <DescriptionHead key={albums._id} collect={albums}></DescriptionHead>
            <div className='m-10 reader' ref={ref}>
                <img className='flex justify-center' src={albums.img} alt="" />
                <h4 className='text-4xl'>{albums.name}</h4>

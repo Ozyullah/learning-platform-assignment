@@ -16,54 +16,54 @@ import Securerouter from "./Privateroute/Securerouter";
 
 export const router = createBrowserRouter([
     {
-        path:"/",
-        element:<Main></Main>,
-        children:[
-        {
-            path:"/",
-            element:<Home></Home>,
-            loader:()=>fetch("http://localhost:5000/tittles ")
-        },
-        {
-            path:"/faq",
-            element:<Faq></Faq>,
-        },
-        {
-            path:"/blog",
-            element:<Blog></Blog>
-        },
-        {
-            path:"/login",
-            element:<Login></Login>
-        },
-        {
-            path:"/register",
-            element:<Register></Register>
-        },
-        {
-            path:"/courses",
-            element:<Courses></Courses>,
-        },
-        {
-            path:"/catagory/:id",
-            element:<CoursesItems></CoursesItems>,
-            loader:({params})=>fetch(`http://localhost:5000/catagory/${params.id}`)
-        },
-        {
-            path:"/premium/:id",
-            element:<Securerouter><CheckOut></CheckOut></Securerouter>,
-            loader:({ params })=>fetch(`http://localhost:5000/premium/${params.id}`)
-        }
+        path: "/",
+        element: <Main></Main>,
+        children: [
+            {
+                path: "/",
+                element: <Home></Home>,
+                loader: ()=>fetch("https://learning-platforn-assignment-server.vercel.app/tittles ")
+            },
+            {
+                path: "/faq",
+                element: <Faq></Faq>,
+            },
+            {
+                path: "/blog",
+                element: <Blog></Blog>
+            },
+            {
+                path: "/login",
+                element: <Login></Login>
+            },
+            {
+                path: "/register",
+                element: <Register></Register>
+            },
+            {
+                path: "/courses",
+                element: <Courses></Courses>,
+            },
+            {
+                path: "/catagory/:id",
+                element: <CoursesItems></CoursesItems>,
+                loader: ({ params }) => fetch(`https://learning-platforn-assignment-server.vercel.app/catagory/${params.id}`)
+            },
+            {
+                path: "/premium/:id",
+                element: <Securerouter><CheckOut></CheckOut></Securerouter>,
+                loader: ({ params }) => fetch(`https://learning-platforn-assignment-server.vercel.app/premium/${params.id}`)
+            }
         ]
     },
     {
-        path:"/courses/:id",
-        element:<CoursesDescription></CoursesDescription>,
-        loader:({ params })=>fetch(`http://localhost:5000/courses/${params.id}`)
+        path: "/courses/:id",
+        element: <CoursesDescription></CoursesDescription>,
+        loader: ({ params }) => fetch(`https://learning-platforn-assignment-server.vercel.app/courses/${params.id}`)
     },
     {
-        path:"/*",
-        element:<ErrorPage></ErrorPage>
+        path: "/*",
+        element: <ErrorPage></ErrorPage>
     }
-    
+
 ])
